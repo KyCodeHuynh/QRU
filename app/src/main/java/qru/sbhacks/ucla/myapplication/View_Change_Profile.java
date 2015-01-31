@@ -4,9 +4,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class View_Change_Profile extends ActionBarActivity {
+
+    public void exit(View view) {
+        System.exit(0);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

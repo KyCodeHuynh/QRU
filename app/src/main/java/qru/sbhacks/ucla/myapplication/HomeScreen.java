@@ -12,6 +12,10 @@ public class HomeScreen extends ActionBarActivity {
 
     // get text via textView library
 
+    public void exit(View view) {
+        System.exit(0);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
