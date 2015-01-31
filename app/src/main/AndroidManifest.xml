@@ -32,6 +32,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="qru.sbhacks.ucla.myapplication.HomeScreen" />
         </activity>
+        <activity
+            android:name=".Parser"
+            android:label="@string/title_activity_parser" >
+        </activity>
     </application>
 
 </manifest>

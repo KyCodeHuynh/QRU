@@ -4,26 +4,23 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class View_Change_Profile extends ActionBarActivity {
+public class Parser extends ActionBarActivity {
 
-    // Implements the "Cancel" button
-    public void exit(View view) {
-        System.exit(0);
-    }
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view__change__profile);
+        setContentView(R.layout.activity_parser);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_view__change__profile, menu);
+        getMenuInflater().inflate(R.menu.menu_parser, menu);
         return true;
     }
 
@@ -41,6 +38,4 @@ public class View_Change_Profile extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }
