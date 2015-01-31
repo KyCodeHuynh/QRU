@@ -12,15 +12,6 @@ public class HomeScreen extends ActionBarActivity {
 
     // get text via textView library
 
-    public void exit(View view) {
-        System.exit(0);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,4 +47,47 @@ public class HomeScreen extends ActionBarActivity {
         startActivity(generateCode);
     }
 
+    public void exit(View view) {
+        System.exit(0);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home_screen);
+    }
+
 }
+
+
+/*
+IO IMPLEMENTATIONS
+
+    public void writeToFile() {
+        try {
+            FileOutputStream fos = openFileOutput("prof.txt",Context.MODE_PRIVATE);
+            String tosend = "bananas";
+            fos.write(tosend.getBytes());
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readFromFile() {
+
+        try {
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(
+                    openFileInput("prof.txt")));
+            String inputString;
+            StringBuffer stringBuffer = new StringBuffer();
+            while ((inputString = inputReader.readLine()) != null) {
+                stringBuffer.append(inputString + "\n");
+            }
+            TextView lblTextViewOne = (TextView) findViewById(R.id.twitterFeed);
+            lblTextViewOne.setText(stringBuffer.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+ */
