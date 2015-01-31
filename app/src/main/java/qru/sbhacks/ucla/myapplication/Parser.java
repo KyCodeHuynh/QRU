@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 
 public class Parser extends ActionBarActivity {
 

@@ -6,6 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+
 
 public class View_Change_Profile extends ActionBarActivity {
 
@@ -18,6 +22,14 @@ public class View_Change_Profile extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__change__profile);
+        Profile testProfile = new Profile("1", "2", "#", "4");
+        try {
+            testProfile.testParser();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

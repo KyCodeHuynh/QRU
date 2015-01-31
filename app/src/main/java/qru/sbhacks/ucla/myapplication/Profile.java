@@ -6,6 +6,7 @@ import android.util.Xml;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -41,15 +42,25 @@ public class Profile {
             parser.setInput(in, null);
             parser.nextTag();
             return readFeed(parser);
-        } finally {
+        }
+        catch (XmlPullParserException e) {
+            System.err.println("Error: XmlPullParserException");
+            System.exit(1);
+        }
+        catch (IOException e) {
+            System.err.println("Error: IOException");
+            System.exit(1);
+        }
+        finally {
             in.close();
+            return null;
         }
     }
 
     private List readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
         List entries = new ArrayList();
 
-        parser.require(XmlPullParser.START_TAG, ns, "feed");
+        //parser.require(XmlPullParser.START_TAG, ns, "feed");
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -129,5 +140,31 @@ public class Profile {
             parser.nextTag();
         }
         return result;
+    }
+
+    public void testParser() throws IOException, XmlPullParserException {
+
+        try {
+            // TODO: Give correct path to file
+            InputStream file = FileInputStream(R.menu.strings.xml);
+            List testList = parse(file);
+
+            for (int i = 0; i < testList.size(); i++) {
+                Profile p = (Profile) testList.get(i);
+                System.out.println("Name: " + p.name);
+                System.out.println("Email: " + p.email);
+                System.out.println("Facebook: " + p.facebook);
+                System.out.println("Number: " + p.number);
+            }
+        }
+        catch (IOException e) {
+            System.err.println("IOException");
+            System.exit(1);
+        }
+        catch (XmlPullParserException e) {
+            System.err.println("XmlPullParserException");
+            System.exit(1);
+        }
+
     }
 }
