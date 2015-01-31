@@ -1,0 +1,61 @@
+# QRConnect Outline 
+
+## Overview
+
+Demonstration app for an extension service
+between apps and devices. 
+
+
+## Resources
+
+- XML file that holds the local copy of 
+  the user contact information. We refer
+  to this as a "profile". 
+
+
+## Home Screen 
+
+Displays 4 buttons: 
+
+1. Generate QR code to share contact information
+2. Scan code to get contact information 
+3. View/change profile 
+4. Quit 
+
+
+## Generate QR Code
+
+- This button is disabled unless the user profile 
+  includes at least a name
+- A list of checkboxes is displayed, each 
+  corresponding to the data available locally 
+  to display as a QR code for another device to scan.
+
+
+## Scan QR Code
+
+- QR library handles scanning and reading QR codes
+- An intent with an extra String is returned, 
+  holding an XML string of the read contact data
+- We parse the XML string and populate a contact
+  card that we then add to the local contacts
+- Toast message letting user know that
+  "[Name] has been added to your contacts."
+
+
+## View/change Profile 
+
+- Give brief message letting user know: 
+  "Don't worry, you can select what information 
+  to share with another user later." 
+- Display list of contact fields: 
+  name, phone number, email, Twitter handle, etc. 
+- Automatically populate personal fields
+  from "Me" contact on device
+- Let user edit to fill in the rest of the fields 
+- Diplay sign-in button for all supported social media 
+- Display "Cancel" and "Save" buttons at 
+  the bottom 
+
+
+
