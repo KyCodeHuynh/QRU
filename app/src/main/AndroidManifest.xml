@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="qru.sbhacks.ucla.myapplication.HomeScreen" />
         </activity>
+        <activity
+            android:name=".FacebookLogin"
+            android:label="@string/title_activity_facebook_login"
+            android:parentActivityName=".View_Change_Profile" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="qru.sbhacks.ucla.myapplication.View_Change_Profile" />
+        </activity>
     </application>
 
 </manifest>

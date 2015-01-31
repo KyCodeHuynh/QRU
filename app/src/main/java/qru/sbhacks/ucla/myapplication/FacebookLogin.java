@@ -4,40 +4,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.facebook.Session;
 
-import org.xmlpull.v1.XmlSerializer;
-import android.os.Environment;
-import android.util.Log;
-import android.util.Xml;
-import android.widget.TextView;
-import android.content.Context;
 
-public class GenerateCode extends ActionBarActivity {
-
-    public void exit(View view) {
-       System.exit(0);
-    }
-
-    private File f;
+public class FacebookLogin extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_generate_code);
-
-
+        setContentView(R.layout.activity_facebook_login);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_generate_code, menu);
+        getMenuInflater().inflate(R.menu.menu_facebook_login, menu);
         return true;
     }
 
