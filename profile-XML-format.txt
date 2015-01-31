@@ -1,4 +1,4 @@
-# XML Format for Internal QRU Profile 
+# XML Format for Internal QRU qru.sbhacks.ucla.myapplication.Profile
 
 Example: 
 
