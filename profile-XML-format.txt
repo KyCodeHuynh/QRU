@@ -1,0 +1,12 @@
+# XML Format for Internal QRU Profile 
+
+Example: 
+
+    <profile> 
+        <name></name> 
+        <email></email> 
+        <facebook></facebook> 
+        <phone></phone>
+    </profile> 
+
+
