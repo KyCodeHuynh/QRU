@@ -9,6 +9,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +18,10 @@ import java.util.List;
 
 public class Profile {
 
-    public final String name;
-    public final String email;
-    public final String facebook;
-    public final String number;
+    public String name;
+    public String email;
+    public String facebook;
+    public String number;
 
     public Profile(String name, String email, String facebook, String number) {
         this.name = name;
@@ -142,7 +143,7 @@ public class Profile {
 
         try {
             // TODO: Give correct path to file
-            InputStream file = FileInputStream(R.menu.strings.xml);
+            InputStream file = new InputStream();
             List testList = parse(file);
 
             for (int i = 0; i < testList.size(); i++) {
@@ -162,5 +163,55 @@ public class Profile {
             System.exit(1);
         }
 
+    }
+
+    public Profile parseString(String str) {
+        // Initialize empty user
+        Profile user = new Profile("", "", "", "");
+        String curTag = "";
+        String curVal = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            // Opening tag
+            if (c == '<') {
+                // Identify tag; move past opening brace
+                i++;
+
+                // Go until next closing brance
+                while (str.charAt(i) != '>') {
+                    curTag += str.charAt(i);
+                    i++;
+                }
+
+                // Move past closing brace
+                i++;
+
+                // Go until next opening brace
+                while (str.charAt(i) != '<') {
+                    curVal += str.charAt(i);
+                }
+
+                // We now have a a full value and a tag
+                switch (curTag) {
+                    case "name":
+                        user.name = curVal;
+                    case "phone":
+                        user.number = curVal;
+                    case "email":
+                        user.email = curVal;
+                    case "facebook":
+                        user.facebook = curVal;
+
+                    // Nothing to store
+                    default:
+                        break;
+                }
+
+                curTag = "";
+            }
+        }
+
+        return user;
     }
 }

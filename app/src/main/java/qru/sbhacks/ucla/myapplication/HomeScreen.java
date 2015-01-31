@@ -1,5 +1,6 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +8,11 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class HomeScreen extends ActionBarActivity {
 
@@ -57,6 +63,24 @@ public class HomeScreen extends ActionBarActivity {
         setContentView(R.layout.activity_home_screen);
     }
 
+    public String readFromFile(Context ctx) {
+
+        try {
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(
+                    ctx.openFileInput("profile.xml")));
+            String inputString;
+            StringBuffer stringBuffer = new StringBuffer();
+            while ((inputString = inputReader.readLine()) != null) {
+                stringBuffer.append(inputString + "\n");
+            }
+            return inputString;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Otherwise, failure
+        return null;
+    }
 }
 
 
@@ -74,20 +98,5 @@ IO IMPLEMENTATIONS
         }
     }
 
-    public void readFromFile() {
 
-        try {
-            BufferedReader inputReader = new BufferedReader(new InputStreamReader(
-                    openFileInput("prof.txt")));
-            String inputString;
-            StringBuffer stringBuffer = new StringBuffer();
-            while ((inputString = inputReader.readLine()) != null) {
-                stringBuffer.append(inputString + "\n");
-            }
-            TextView lblTextViewOne = (TextView) findViewById(R.id.twitterFeed);
-            lblTextViewOne.setText(stringBuffer.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
  */
