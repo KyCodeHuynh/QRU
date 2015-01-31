@@ -1,7 +1,10 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Context;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Xml;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,12 +17,22 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 
-
+/*public static class Data{
+    public final String name;
+    public final String email;
+    public final String phonenumber;
+    private Data(String Name, String Email, String Phonenumber){
+        name = Name;
+        email= Email;
+        phonenumber = Phonenumber;
+    }
+}*/
 public class View_Change_Profile extends ActionBarActivity {
 
     public void exit(View view) {
@@ -58,51 +71,51 @@ public class View_Change_Profile extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void updateProfile(View view){
-        File f;
-        f = getDir("res/xml", MODE_PRIVATE);
-        try{
-            f.createNewFile();
-        }catch (IOException e){
-
-        }
         FileOutputStream fileos = null;
-        try{
-            fileos = new FileOutputStream(f);
-        } catch(IOException e){
-
+        try {
+            fileos = openFileOutput("profile.xml", Context.MODE_PRIVATE);
+            Log.d("DebugUpdate", "Filestream Generated");
+        }catch (FileNotFoundException e) {
         }
         XmlSerializer xms = Xml.newSerializer();
+
         try{
             xms.setOutput(fileos, "UTF-8");
             xms.startDocument(null,true);
 
+            Log.d("DebugUpdate", "Filestream bound");
             //name
             xms.startTag(null, "name");
             //if text view does not equal "", we write something, else we will have <name></name>
-            if (!(((TextView)findViewById(R.id.editText)).getText().equals(""))) {
-                xms.text((String) ((TextView) findViewById(R.id.editText)).getText());
-                Toast.makeText(getApplicationContext(), "name written...", Toast.LENGTH_SHORT);
-            }
-            xms.endTag(null, "name");
+            Log.d("DebugUpdate", "tag written");
+            String temp = ((TextView)findViewById(R.id.editText)).getText().toString();
+                xms.text(temp);
+                //Toast.makeText(getApplicationContext(), "name written...", Toast.LENGTH_SHORT).show();
 
+            xms.endTag(null, "name");
+            Log.d("DebugUpdate", "Name written");
 
             //phone number
             xms.startTag(null, "phone");
-            xms.text((String)((TextView)findViewById(R.id.editText2)).getText());
+            xms.text(((TextView)findViewById(R.id.editText2)).getText().toString());
             xms.endTag(null, "phone");
+            Log.d("DebugUpdate", "phone written");
 
             //email
             xms.startTag(null, "email");
-            xms.text((String)((TextView)findViewById(R.id.editText3)).getText());
+            xms.text(((TextView)findViewById(R.id.editText3)).getText().toString());
             xms.endTag(null, "email");
 
+            Log.d("DebugUpdate", "email written");
 
 
             xms.flush();
             fileos.close();
 
         }catch (Exception e){
-
+            Log.d("DebugUpdate", "failure");
         }
+        Toast.makeText(getApplicationContext(), "Profile Updated!", Toast.LENGTH_SHORT).show();
+
     }
 }
