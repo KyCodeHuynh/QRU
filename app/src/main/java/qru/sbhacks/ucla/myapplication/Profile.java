@@ -12,11 +12,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by kellyhosokawa on 1/31/15.
- */
-
-// need to implement skip tag?
+// TODO: need to implement skip tag?
 
 
 public class Profile {
@@ -151,10 +147,10 @@ public class Profile {
 
             for (int i = 0; i < testList.size(); i++) {
                 Profile p = (Profile) testList.get(i);
-                System.out.println("Name: " + p.name);
-                System.out.println("Email: " + p.email);
+                System.out.println("Name: "     + p.name);
+                System.out.println("Email: "    + p.email);
                 System.out.println("Facebook: " + p.facebook);
-                System.out.println("Number: " + p.number);
+                System.out.println("Number: "   + p.number);
             }
         }
         catch (IOException e) {
