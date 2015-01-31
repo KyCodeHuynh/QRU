@@ -24,6 +24,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="qru.sbhacks.ucla.myapplication.HomeScreen" />
         </activity>
+        <activity
+            android:name=".GenerateCode"
+            android:label="@string/title_activity_generate_code"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="qru.sbhacks.ucla.myapplication.HomeScreen" />
     </application>
 
 </manifest>
