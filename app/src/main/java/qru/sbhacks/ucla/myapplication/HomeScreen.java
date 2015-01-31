@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.content.Intent;
+import android.view.View;
 
 
 public class HomeScreen extends ActionBarActivity {
@@ -35,5 +37,11 @@ public class HomeScreen extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void view_change_profile(View view)
+    {
+        Intent profileChange = new Intent(this, View_Change_Profile.class);
+        startActivity(profileChange);
     }
 }
