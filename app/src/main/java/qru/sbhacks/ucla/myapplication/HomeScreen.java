@@ -46,4 +46,11 @@ public class HomeScreen extends ActionBarActivity {
         Intent profileChange = new Intent(this, View_Change_Profile.class);
         startActivity(profileChange);
     }
+
+    public void generate_code(View view)
+    {
+        Intent generateCode = new Intent(this, GenerateCode.class);
+        startActivity(generateCode);
+    }
+
 }
