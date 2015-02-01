@@ -36,6 +36,14 @@
             android:name=".Parser"
             android:label="@string/title_activity_parser" >
         </activity>
+        <activity
+            android:name=".Generated"
+            android:label="@string/title_activity_generated"
+            android:parentActivityName=".GenerateCode" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="qru.sbhacks.ucla.myapplication.GenerateCode" />
+        </activity>
     </application>
 
 </manifest>

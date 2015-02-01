@@ -7,5 +7,7 @@
     <string name="title_activity_view__change__profile">View_Change_Profile</string>
     <string name="title_activity_generate_code">GenerateCode</string>
     <string name="title_activity_parser">Parser</string>
+    <string name="title_activity_generated">Generated</string>
+    <string name="testingparser"><name>Jonathan</name></string>
 
 </resources>

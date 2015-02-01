@@ -6,25 +6,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
-public class GenerateCode extends ActionBarActivity {
-
-    public void exit(View view) {
-       System.exit(0);
-    }
+public class Generated extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_generate_code);
+        setContentView(R.layout.activity_generated);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_generate_code, menu);
+        getMenuInflater().inflate(R.menu.menu_generated, menu);
         return true;
     }
 
@@ -42,9 +39,14 @@ public class GenerateCode extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void generation(View view)
-    {
-        Intent generation = new Intent(this, Generated.class);
-        startActivity(generation);
+    public void runtest(View view){
+        Profile jong = new Profile("","","","");
+        System.out.println("Inside of runtest()");
+        jong=Profile.parseString("<name>Jonathan</name>");
+        TextView theone=(TextView) findViewById(R.id.textview20);
+        theone.setText(jong.name);
+        System.out.println(jong.name);
+
     }
+
 }

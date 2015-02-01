@@ -143,7 +143,7 @@ public class Profile {
 
         try {
             // TODO: Give correct path to file
-            InputStream file = new InputStream();
+            InputStream file=null;
             List testList = parse(file);
 
             for (int i = 0; i < testList.size(); i++) {
@@ -165,7 +165,7 @@ public class Profile {
 
     }
 
-    public Profile parseString(String str) {
+    static public Profile parseString(String str) {
         // Initialize empty user
         Profile user = new Profile("", "", "", "");
         String curTag = "";
@@ -190,6 +190,7 @@ public class Profile {
                 // Go until next opening brace
                 while (str.charAt(i) != '<') {
                     curVal += str.charAt(i);
+                    i++;
                 }
 
                 // We now have a a full value and a tag
