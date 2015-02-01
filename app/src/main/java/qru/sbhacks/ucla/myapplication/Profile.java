@@ -30,11 +30,11 @@ public class Profile {
     public String facebook;
     public String number;
 
-    public Profile(String name, String email, String facebook, String number) {
+    public Profile(String name, String phone, String email, String facebook) {
         this.name = name;
         this.email = email;
         this.facebook = facebook;
-        this.number = number;
+        this.number = phone;
     }
 
     static public Profile parseString(String str) {
