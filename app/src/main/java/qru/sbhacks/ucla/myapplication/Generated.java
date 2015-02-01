@@ -40,11 +40,12 @@ public class Generated extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void runtest(View view){
-        Profile jong = new Profile("","","","");
+        Profile jong;
         System.out.println("Inside of runtest()");
-        jong=Profile.parseString("<name>Jonathan</name>");
+        jong=Profile.parseString(getResources().getString(R.string.testingparser));
+
         TextView theone=(TextView) findViewById(R.id.textview20);
-        theone.setText(jong.name);
+        theone.setText(jong.name + "\n" + jong.number + "\n" + jong.email + "\n" + jong.facebook);
         System.out.println(jong.name);
 
     }

@@ -23,14 +23,14 @@ public class View_Change_Profile extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__change__profile);
-        Profile testProfile = new Profile("1", "2", "#", "4");
-        try {
-            testProfile.testParser();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        }
+//        Profile testProfile = new Profile("1", "2", "#", "4");
+//        try {
+//            testProfile.testParser();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (XmlPullParserException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override

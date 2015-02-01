@@ -7,10 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
-import android.widget.TextView;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -18,6 +15,11 @@ public class HomeScreen extends ActionBarActivity {
 
     // get text via textView library
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home_screen);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,46 +59,8 @@ public class HomeScreen extends ActionBarActivity {
         System.exit(0);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
-    }
 
-    public String readFromFile(Context ctx) {
 
-        try {
-            BufferedReader inputReader = new BufferedReader(new InputStreamReader(
-                    ctx.openFileInput("profile.xml")));
-            String inputString;
-            StringBuffer stringBuffer = new StringBuffer();
-            while ((inputString = inputReader.readLine()) != null) {
-                stringBuffer.append(inputString + "\n");
-            }
-            return inputString;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // Otherwise, failure
-        return null;
-    }
 }
 
 
-/*
-IO IMPLEMENTATIONS
-
-    public void writeToFile() {
-        try {
-            FileOutputStream fos = openFileOutput("prof.txt",Context.MODE_PRIVATE);
-            String tosend = "bananas";
-            fos.write(tosend.getBytes());
-            fos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
- */
