@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 
+import com.google.zxing.BarcodeFormat;
+
 
 public class GenerateCode extends ActionBarActivity {
 
@@ -46,8 +48,13 @@ public class GenerateCode extends ActionBarActivity {
 
     public void generation(View view)
     {
-        Intent generation = new Intent(this, Generated.class);
+        //Intent generation = new Intent(this, Generated.class);
+        Intent generation = new Intent(this, EncodeActivity.class);
         generation.putExtra("checkedBoxes", checkedBoxes(view));
+        generation.putExtra(Intents.Encode.FORMAT, BarcodeFormat.QR_CODE);
+        generation.setAction(Intents.Encode.ACTION);
+        generation.putExtra(Intents.Encode.TYPE,Contents.Type.TEXT);
+        generation.putExtra(Intents.Encode.DATA, HomeScreen.globalStr);
         startActivity(generation);
     }
 

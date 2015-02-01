@@ -1,5 +1,6 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,9 +12,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
 public class HomeScreen extends ActionBarActivity {
 
-    // get text via textView library
+    public static String globalStr = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
