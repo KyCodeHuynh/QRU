@@ -1,27 +1,25 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
-import android.widget.TextView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class HomeScreen extends ActionBarActivity {
 
     // get text via textView library
-
-    public void exit(View view) {
-        System.exit(0);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -61,4 +59,12 @@ public class HomeScreen extends ActionBarActivity {
         startActivity(activity);
     }
 
+    public void exit(View view) {
+        System.exit(0);
+    }
+
+
+
 }
+
+

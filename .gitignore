@@ -1,8 +1,9 @@
+
 .gradle
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
 /.idea/gradle.xml
-/facebook-android-sdk-3.22.0/
 .DS_Store
 /build
+/facebook-android-sdk-3.22.0/*

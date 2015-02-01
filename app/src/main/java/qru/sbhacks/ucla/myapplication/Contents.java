@@ -25,6 +25,7 @@ import android.provider.ContactsContract;
  * @author dswitkin@google.com (Daniel Switkin)
  */
 public final class Contents {
+
     private Contents() {
     }
 

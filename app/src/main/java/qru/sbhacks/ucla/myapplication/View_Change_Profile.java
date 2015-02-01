@@ -1,14 +1,25 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import com.facebook.Session;
+
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 public class View_Change_Profile extends ActionBarActivity {
 
+    // Implements the "Cancel" button
     public void exit(View view) {
         System.exit(0);
     }
@@ -17,8 +28,32 @@ public class View_Change_Profile extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__change__profile);
-    }
+//        Profile testProfile = new Profile("1", "2", "#", "4");
+//        try {
+//            testProfile.testParser();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (XmlPullParserException e) {
+//            e.printStackTrace();
+//        }
 
+//        Profile p = new Profile("", "", "", "");
+//        String rawProfile = p.readFromFile(Context);
+//        p = Profile.parseString(rawProfile);
+
+        try {
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(
+                    openFileInput("profile.xml")));
+            String inputString;
+            StringBuffer stringBuffer = new StringBuffer();
+            while ((inputString = inputReader.readLine()) != null) {
+                stringBuffer.append(inputString + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,4 +76,29 @@ public class View_Change_Profile extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void saveProfile(View view) {
+        Profile p = new Profile("", "", "", "");
+
+        TextView nameField = (TextView)findViewById(R.id.editText);
+        p.name = nameField.getText().toString();
+
+        TextView emailField = (TextView)findViewById(R.id.editText2);
+        p.email = emailField.getText().toString();
+
+        TextView numField = (TextView)findViewById(R.id.editText3);
+        p.number = numField.getText().toString();
+
+        String toFile = "";
+
+        toFile += "<name>" + p.name + "</name>" + "<phone>" + p.number
+                    + "</phone>" + "<email>" + p.email + "</email>"
+                    + "<facebook>" + "</facebook>";
+
+        System.out.println(toFile);
+
+        p.writeToFile(toFile);
+
+    }
+
 }

@@ -33,6 +33,7 @@
                 android:value="qru.sbhacks.ucla.myapplication.HomeScreen" />
         </activity>
         <activity
+
             android:name=".DispCode"
             android:label="@string/title_activity_disp_code" >
         </activity>
@@ -43,6 +44,20 @@
         <activity
             android:name=".DisplayResult"
             android:label="@string/title_activity_display_result" >
+
+        </activity>
+        <activity
+            android:name=".Parser"
+            android:label="@string/title_activity_parser" >
+        </activity>
+        <activity
+            android:name=".Generated"
+            android:label="@string/title_activity_generated"
+            android:parentActivityName=".GenerateCode" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="qru.sbhacks.ucla.myapplication.GenerateCode" />
+
         </activity>
     </application>
 
