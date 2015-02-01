@@ -20,7 +20,7 @@ public class View_Change_Profile extends ActionBarActivity {
         setContentView(R.layout.activity_view__change__profile);
     }
     public void login(View view){
-        Intent activity = new Intent(this, SplashFragment.class);
+        Intent activity = new Intent(this, MainActivity.class);
         startActivity(activity);
     }
 

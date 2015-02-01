@@ -40,17 +40,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="qru.sbhacks.ucla.myapplication.HomeScreen" />
         </activity>
-        <activity
-            android:name=".FacebookLogin"
-            android:label="@string/title_activity_facebook_login" >
-        </activity>
+        <!-- <activity -->
+        <!-- android:name=".FacebookLogin" -->
+        <!-- android:label="@string/title_activity_facebook_login" > -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <!-- <activity -->
+        <!-- android:name=".finalauth" -->
+        <!-- android:label="@string/title_activity_finalauth" > -->
+        <!-- </activity> -->
         <activity
-            android:name=".finalauth"
-            android:label="@string/title_activity_finalauth" >
+            android:name=".DisplayQR"
+            android:label="@string/title_activity_display_qr" >
         </activity>
     </application>
 

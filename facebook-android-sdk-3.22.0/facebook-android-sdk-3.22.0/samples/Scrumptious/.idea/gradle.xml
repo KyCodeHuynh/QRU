@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../.." />
+            <option value="$PROJECT_DIR$/../../facebook" />
+            <option value="$PROJECT_DIR$/../../facebook/TestApp" />
+            <option value="$PROJECT_DIR$/../../facebook/tests" />
+            <option value="$PROJECT_DIR$/../FriendPickerSample" />
+            <option value="$PROJECT_DIR$/../HelloFacebookSample" />
+            <option value="$PROJECT_DIR$/../PlacePickerSample" />
+            <option value="$PROJECT_DIR$/../RPSSample" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/../SwitchUserSample" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
+
