@@ -3,6 +3,7 @@ package qru.sbhacks.ucla.myapplication;
 
 import android.content.Context;
 import android.util.Xml;
+import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -140,6 +141,7 @@ public boolean writeToFile(Context ctx, String tosend) throws IOException {
     }
 
     return true;
+
 }
 
 }

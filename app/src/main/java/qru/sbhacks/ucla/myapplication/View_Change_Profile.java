@@ -56,7 +56,10 @@ public class View_Change_Profile extends ActionBarActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        if(stringBuffer==null)
+            System.out.println("dickbutt");
         if (stringBuffer != null) {
+            System.out.println(stringBuffer.toString());
             Profile p = new Profile("", "", "", "");
             p = Profile.parseString(stringBuffer.toString());
             EditText temp;
@@ -111,8 +114,9 @@ public class View_Change_Profile extends ActionBarActivity {
 
         System.out.println(toFile);
 
-        p.writeToFile(this.getApplicationContext(), toFile);
-        Toast.makeText(getApplicationContext(), "Save successful", Toast.LENGTH_LONG).show();
+        if (p.writeToFile(this.getApplicationContext(), toFile)){
+            Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
