@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.facebook.Session;
+//import com.facebook.Session;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -40,19 +42,31 @@ public class View_Change_Profile extends ActionBarActivity {
 //        Profile p = new Profile("", "", "", "");
 //        String rawProfile = p.readFromFile(Context);
 //        p = Profile.parseString(rawProfile);
-
+          StringBuffer stringBuffer = null;
         try {
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(
                     openFileInput("profile.xml")));
             String inputString;
-            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer = new StringBuffer();
             while ((inputString = inputReader.readLine()) != null) {
                 stringBuffer.append(inputString + "\n");
             }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        if (stringBuffer != null) {
+            Profile p = new Profile("", "", "", "");
+            p = Profile.parseString(stringBuffer.toString());
+            EditText temp;
+            temp = (EditText) findViewById(R.id.editText);
+            temp.setText(p.name);
+            temp = (EditText) findViewById(R.id.editText2);
+            temp.setText(p.email);
+            temp = (EditText) findViewById(R.id.editText3);
+            temp.setText(p.number);
+        }
     }
 
     @Override
@@ -77,7 +91,7 @@ public class View_Change_Profile extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void saveProfile(View view) {
+    public void saveProfile(View view) throws IOException {
         Profile p = new Profile("", "", "", "");
 
         TextView nameField = (TextView)findViewById(R.id.editText);
@@ -97,7 +111,8 @@ public class View_Change_Profile extends ActionBarActivity {
 
         System.out.println(toFile);
 
-        p.writeToFile(toFile);
+        p.writeToFile(this.getApplicationContext(), toFile);
+        Toast.makeText(getApplicationContext(), "Save successful", Toast.LENGTH_LONG).show();
 
     }
 

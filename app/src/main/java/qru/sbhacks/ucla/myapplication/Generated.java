@@ -28,6 +28,7 @@ public class Generated extends ActionBarActivity {
         // Parse into profile info
         p = Profile.parseString(raw);
         String result = "";
+        result += "<TEXT_TYPE>";
 
         // Name
         if (checkedBoxes[0] == true) {
@@ -42,6 +43,11 @@ public class Generated extends ActionBarActivity {
         if (checkedBoxes[3] == true) {
             result += "<facebook>" + p.facebook + "</facebook>";
         }
+        result +="</TEXT_TYPE>";
+
+        Intent activity = new Intent(this, DispCode.class);
+        activity.putExtra("xml", result);
+        startActivity(activity);
 
 
     }

@@ -8,11 +8,14 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,14 +125,18 @@ public String readFromFile(Context ctx) {
     return null;
 }
 
-public boolean writeToFile(String tosend) {
+public boolean writeToFile(Context ctx, String tosend) throws IOException {
+    String path = ctx.getFilesDir().getAbsolutePath();
+    File file = new File(path + "profile.xml");
+    FileOutputStream stream = new FileOutputStream(file);
     try {
-        FileOutputStream fos = openFileOutput("profile.xml", Context.MODE_PRIVATE);
-        fos.write(tosend.getBytes());
-        fos.close();
+        stream.write(tosend.getBytes());
     } catch (Exception e) {
         e.printStackTrace();
         return false;
+    }
+    finally {
+        stream.close();
     }
 
     return true;
