@@ -3,6 +3,7 @@ package qru.sbhacks.ucla.myapplication;
 
 import android.content.Context;
 import android.util.Xml;
+import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -107,39 +108,44 @@ public class Profile {
         return new Profile(val1,val2 ,val3, val4);
 }
 public String readFromFile(Context ctx) {
-
-    try {
-        BufferedReader inputReader = new BufferedReader(new InputStreamReader(
-                ctx.openFileInput("profile.xml")));
-        String inputString;
-        StringBuffer stringBuffer = new StringBuffer();
-        while ((inputString = inputReader.readLine()) != null) {
-            stringBuffer.append(inputString + "\n");
-        }
-        return inputString;
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-
-    // Otherwise, failure
-    return null;
+//    String path  = ctx.getFilesDir().getAbsolutePath();
+//    String input = path + "profile.xml";
+//    try {
+//        BufferedReader inputReader = new BufferedReader(new InputStreamReader(
+//                ctx.openFileInput(input)));
+//        String inputString;
+//        StringBuffer stringBuffer = new StringBuffer();
+//        while ((inputString = inputReader.readLine()) != null) {
+//            stringBuffer.append(inputString + "\n");
+//        }
+//        return inputString;
+//    } catch (IOException e) {
+//        e.printStackTrace();
+//    }
+//
+//    // Otherwise, failure
+//    return null;
+    return HomeScreen.globalStr;
 }
 
 public boolean writeToFile(Context ctx, String tosend) throws IOException {
-    String path = ctx.getFilesDir().getAbsolutePath();
-    File file = new File(path + "profile.xml");
-    FileOutputStream stream = new FileOutputStream(file);
-    try {
-        stream.write(tosend.getBytes());
-    } catch (Exception e) {
-        e.printStackTrace();
-        return false;
-    }
-    finally {
-        stream.close();
-    }
-
+//    String path = ctx.getFilesDir().getAbsolutePath();
+//    File file = new File(path + "profile.xml");
+//    FileOutputStream stream = new FileOutputStream(file);
+//    try {
+//        stream.write(tosend.getBytes());
+//        System.out.println("dingleberries");
+//        System.out.println(readFromFile(ctx));
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//        return false;
+//    }
+//    finally {
+//        stream.close();
+//    }
+    HomeScreen.globalStr = tosend;
     return true;
+
 }
 
 }

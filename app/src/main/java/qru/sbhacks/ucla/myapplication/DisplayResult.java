@@ -20,6 +20,7 @@ public class DisplayResult extends ActionBarActivity {
         setContentView(R.layout.activity_display_result);
         Intent data = getIntent();
         String toshow = data.getStringExtra("xml");
+
         Profile p = null;
         Intent create;
             p = Profile.parseString(toshow);

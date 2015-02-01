@@ -18,6 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".EncodeActivity"
+            android:label ="EncodeActivity"></activity>
+
+            
         <activity
             android:name=".View_Change_Profile"
             android:label="@string/title_activity_view__change__profile"

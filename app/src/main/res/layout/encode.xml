@@ -46,7 +46,8 @@
               android:paddingBottom="@dimen/standard_padding"
               android:paddingLeft="@dimen/standard_padding"
               android:paddingRight="@dimen/standard_padding"
-              android:textIsSelectable="true"/>
+              android:textIsSelectable="true"
+                android:visibility="invisible"/>
 
   </ScrollView>
 
