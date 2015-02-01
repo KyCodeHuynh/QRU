@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Jonathan\Documents\adt-bundle-windows-x86_64-20140702\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-f3399d8233e2b3e7cceb06e69d09c1cee30f7266.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\exploded-aar\com.facebook.android\facebook\3.22.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0aa60b153a6bd3d231eb8e6f2355ed8af0b5e96a">
+        <dex dex="C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\classes-25487447781e51fdb20d5227e01fa32141ba0f5f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jonathan\Documents\Android stuff\gradle-1.12-all\gradle-1.12\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-b3ea7214142397419ee451ebdf145207e4256473.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-46afda1a5f8ce8422547dbeda3224ebd3ceaa79b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\classes-f3de82bcaae651671470e9f2e28169ceae0c6093.jar" />
+    </item>
+
+</items>

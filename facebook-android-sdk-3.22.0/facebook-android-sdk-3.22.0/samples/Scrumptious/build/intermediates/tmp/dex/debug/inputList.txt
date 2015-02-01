@@ -1,0 +1,6 @@
+C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\classes\debug
+C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-f3399d8233e2b3e7cceb06e69d09c1cee30f7266.jar
+C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-b3ea7214142397419ee451ebdf145207e4256473.jar
+C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-46afda1a5f8ce8422547dbeda3224ebd3ceaa79b.jar
+C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\classes-25487447781e51fdb20d5227e01fa32141ba0f5f.jar
+C:\Users\Jonathan\Documents\GitHub\QRU\facebook-android-sdk-3.22.0\facebook-android-sdk-3.22.0\samples\Scrumptious\build\intermediates\pre-dexed\debug\classes-f3de82bcaae651671470e9f2e28169ceae0c6093.jar
