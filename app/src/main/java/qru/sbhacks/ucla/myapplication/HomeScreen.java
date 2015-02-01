@@ -56,5 +56,9 @@ public class HomeScreen extends ActionBarActivity {
         Intent generateCode = new Intent(this, GenerateCode.class);
         startActivity(generateCode);
     }
+    public void Camera (View view){
+        Intent activity = new Intent (this, Camera.class);
+        startActivity(activity);
+    }
 
 }

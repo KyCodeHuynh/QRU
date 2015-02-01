@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidtest/androidtest.iml" filepath="$PROJECT_DIR$/androidtest/androidtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/glass/glass.iml" filepath="$PROJECT_DIR$/glass/glass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/src/main/main.iml" filepath="$PROJECT_DIR$/core/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxing.appspot.com/src/main/main1.iml" filepath="$PROJECT_DIR$/zxing.appspot.com/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-integration/src/main/main2.iml" filepath="$PROJECT_DIR$/android-integration/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-core/src/main/main3.iml" filepath="$PROJECT_DIR$/android-core/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxingorg/src/main/main4.iml" filepath="$PROJECT_DIR$/zxingorg/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javase/src/main/main5.iml" filepath="$PROJECT_DIR$/javase/src/main/main5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/src/test/test.iml" filepath="$PROJECT_DIR$/core/src/test/test.iml" />
+    </modules>
+  </component>
+</project>
+

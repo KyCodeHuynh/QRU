@@ -32,6 +32,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="qru.sbhacks.ucla.myapplication.HomeScreen" />
         </activity>
+        <activity
+            android:name=".DispCode"
+            android:label="@string/title_activity_disp_code" >
+        </activity>
+        <activity
+            android:name=".Camera"
+            android:label="@string/title_activity_camera" >
+        </activity>
+        <activity
+            android:name=".DisplayResult"
+            android:label="@string/title_activity_display_result" >
+        </activity>
     </application>
 
 </manifest>
