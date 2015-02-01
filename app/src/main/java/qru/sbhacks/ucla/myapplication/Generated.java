@@ -43,7 +43,7 @@ public class Generated extends ActionBarActivity {
             result += "<facebook>" + p.facebook + "</facebook>";
         }
 
-        
+
     }
 
 

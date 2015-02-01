@@ -5,3 +5,4 @@
 /.idea/gradle.xml
 .DS_Store
 /build
+/facebook-android-sdk-3.22.0/*
