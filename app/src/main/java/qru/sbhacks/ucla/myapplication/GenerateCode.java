@@ -47,7 +47,7 @@ public class GenerateCode extends ActionBarActivity {
     public void generation(View view)
     {
         Intent generation = new Intent(this, Generated.class);
-        generation.putExtra("Checked boxes", checkedBoxes(view));
+        generation.putExtra("checkedBoxes", checkedBoxes(view));
         startActivity(generation);
     }
 
@@ -63,10 +63,9 @@ public class GenerateCode extends ActionBarActivity {
         // The rest are initialized to false
         boolean [] checkboxes = new boolean[10];
         for (int i = 0; i < checkboxes.length; i++) {
-            checkboxes[box] = false;
+            checkboxes[i] = false;
         }
 
-        // TODO: Finish seeing if boxes are checked, then generate
         if (((CheckBox)findViewById(R.id.checkBox)).isChecked()) {
             checkboxes[0] = true;
         }

@@ -15,6 +15,35 @@ public class Generated extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generated);
+
+        Intent doWhat = getIntent();
+
+        // Find out what was checked
+        boolean[] checkedBoxes = doWhat.getBooleanArrayExtra("checkedBoxes");
+
+        // Get raw XML data
+        Profile p = new Profile("", "", "", "");
+        String raw = p.readFromFile(this.getApplicationContext());
+
+        // Parse into profile info
+        p = Profile.parseString(raw);
+        String result = "";
+
+        // Name
+        if (checkedBoxes[0] == true) {
+            result += "<name>" + p.name + "</name>";
+        }
+        if (checkedBoxes[1] == true) {
+            result += "<phone>" + p.number + "</phone>";
+        }
+        if (checkedBoxes[2] == true) {
+            result += "<email>" + p.email + "</email>";
+        }
+        if (checkedBoxes[3] == true) {
+            result += "<facebook>" + p.facebook + "</facebook>";
+        }
+
+        
     }
 
 
