@@ -28,4 +28,5 @@ dependencies {
     compile 'com.google.zxing:zxing-parent:3.1.0'
     compile 'me.dm7.barcodescanner:zxing:1.6'
 
+
 }

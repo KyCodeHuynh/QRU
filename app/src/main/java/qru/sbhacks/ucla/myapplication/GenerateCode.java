@@ -1,5 +1,6 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -40,5 +41,11 @@ public class GenerateCode extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void QRcode(View view){
+        String given = "<TEXT>Bruin</TEXT><EMAIL_TYPE>JoeBruin@ucla.edu</EMAIL_TYPE><PHONE_TYPE>9999999</PHONE_TYPE>";
+        Intent activity = new Intent(this, DisplayQR.class);
+        activity.putExtra("xml", given);
+        startActivity(activity);
     }
 }
