@@ -108,10 +108,11 @@ public class Profile {
         return new Profile(val1,val2 ,val3, val4);
 }
 public String readFromFile(Context ctx) {
-
+    String path  = ctx.getFilesDir().getAbsolutePath();
+    String input = path + "profile.xml";
     try {
         BufferedReader inputReader = new BufferedReader(new InputStreamReader(
-                ctx.openFileInput("profile.xml")));
+                ctx.openFileInput(input)));
         String inputString;
         StringBuffer stringBuffer = new StringBuffer();
         while ((inputString = inputReader.readLine()) != null) {
@@ -132,6 +133,8 @@ public boolean writeToFile(Context ctx, String tosend) throws IOException {
     FileOutputStream stream = new FileOutputStream(file);
     try {
         stream.write(tosend.getBytes());
+        System.out.println("dingleberries");
+        System.out.println(readFromFile(ctx));
     } catch (Exception e) {
         e.printStackTrace();
         return false;
