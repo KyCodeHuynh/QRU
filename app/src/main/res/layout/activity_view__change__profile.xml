@@ -130,12 +130,37 @@
                         android:id="@+id/textView6"
                         android:layout_weight="1"/>
 
-                    <Button
+                  <!-- <Button
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="Login"
                         android:id="@+id/button4"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:onClick="login"
+                       />
+-->
+
+                        <fragment
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:name = "qru.sbhacks.ucla.myapplication.justbutton"
+                            android:id="@+id/fragment"
+                            android:layout_weight="1" />
+
+                    <!--android:name="qru.sbhacks.ucla.myapplication.MainFragment"-->
+
+                    <!--<com.facebook.widget.LoginButton
+                        android:id="@+id/login_button"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:layout_weight="1"/>
+
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"-->
+
                 </LinearLayout>
 
                 <LinearLayout

@@ -1,5 +1,6 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +18,10 @@ public class View_Change_Profile extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__change__profile);
+    }
+    public void login(View view){
+        Intent activity = new Intent(this, SplashFragment.class);
+        startActivity(activity);
     }
 
 
