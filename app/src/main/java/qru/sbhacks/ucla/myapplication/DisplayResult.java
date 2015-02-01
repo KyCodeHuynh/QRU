@@ -1,12 +1,15 @@
 package qru.sbhacks.ucla.myapplication;
 
 import android.content.Intent;
+import android.provider.Contacts;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import qru.sbhacks.ucla.myapplication.Intents;
 
 
 public class DisplayResult extends ActionBarActivity {
@@ -17,7 +20,20 @@ public class DisplayResult extends ActionBarActivity {
         setContentView(R.layout.activity_display_result);
         Intent data = getIntent();
         String toshow = data.getStringExtra("xml");
-        ((TextView)findViewById(R.id.textView11)).setText(toshow);
+        Profile p = null;
+        Intent create;
+            p = Profile.parseString(toshow);
+        if (p!= null){
+           create = new Intent(Contacts.Intents.Insert.ACTION);
+            create.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+            create.putExtra(Contacts.Intents.Insert.EMAIL, p.email);
+            create.putExtra(Contacts.Intents.Insert.NAME, p.name);
+            create.putExtra(Contacts.Intents.Insert.PHONE, p.number);
+            startActivity(create);
+        }
+
+
+
     }
 
 
