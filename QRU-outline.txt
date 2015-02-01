@@ -43,7 +43,7 @@ Displays 4 buttons:
   "[Name] has been added to your contacts."
 
 
-## View/change Profile 
+## View/change qru.sbhacks.ucla.myapplication.Profile
 
 - Give brief message letting user know: 
   "Don't worry, you can select what information 

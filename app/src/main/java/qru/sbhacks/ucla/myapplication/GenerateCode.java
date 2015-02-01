@@ -1,5 +1,6 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -40,5 +41,10 @@ public class GenerateCode extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void generation(View view)
+    {
+        Intent generation = new Intent(this, Generated.class);
+        startActivity(generation);
     }
 }

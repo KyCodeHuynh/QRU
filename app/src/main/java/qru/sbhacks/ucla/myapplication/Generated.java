@@ -1,42 +1,27 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import com.facebook.Session;
-
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
+import android.widget.TextView;
 
 
-public class View_Change_Profile extends ActionBarActivity {
-
-    // Implements the "Cancel" button
-    public void exit(View view) {
-        System.exit(0);
-    }
+public class Generated extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view__change__profile);
-//        Profile testProfile = new Profile("1", "2", "#", "4");
-//        try {
-//            testProfile.testParser();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (XmlPullParserException e) {
-//            e.printStackTrace();
-//        }
+        setContentView(R.layout.activity_generated);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_view__change__profile, menu);
+        getMenuInflater().inflate(R.menu.menu_generated, menu);
         return true;
     }
 
@@ -54,6 +39,15 @@ public class View_Change_Profile extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void runtest(View view){
+        Profile jong;
+        System.out.println("Inside of runtest()");
+        jong=Profile.parseString(getResources().getString(R.string.testingparser));
 
+        TextView theone=(TextView) findViewById(R.id.textview20);
+        theone.setText(jong.name + "\n" + jong.number + "\n" + jong.email + "\n" + jong.facebook);
+        System.out.println(jong.name);
+
+    }
 
 }
