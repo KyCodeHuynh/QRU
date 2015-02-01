@@ -1,15 +1,20 @@
 package qru.sbhacks.ucla.myapplication;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
 import com.facebook.Session;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 public class View_Change_Profile extends ActionBarActivity {
@@ -31,6 +36,25 @@ public class View_Change_Profile extends ActionBarActivity {
 //        } catch (XmlPullParserException e) {
 //            e.printStackTrace();
 //        }
+
+//        Profile p = new Profile("", "", "", "");
+//        String rawProfile = p.readFromFile(Context);
+//        p = Profile.parseString(rawProfile);
+
+        try {
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(
+                    openFileInput("prof.txt")));
+            String inputString;
+            StringBuffer stringBuffer = new StringBuffer();
+            while ((inputString = inputReader.readLine()) != null) {
+                stringBuffer.append(inputString + "\n");
+            }
+            TextView lblTextViewOne = (TextView) findViewById(R.id.twitterFeed);
+            lblTextViewOne.setText(stringBuffer.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -55,5 +79,26 @@ public class View_Change_Profile extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void saveProfile(View view) {
+        Profile p = new Profile("", "", "", "");
+
+        TextView nameField = (TextView)findViewById(R.id.editText);
+        p.name = nameField.getText().toString();
+
+        TextView emailField = (TextView)findViewById(R.id.editText2);
+        p.email = emailField.getText().toString();
+
+        TextView numField = (TextView)findViewById(R.id.editText3);
+        p.number = numField.getText().toString();
+
+        String toFile = "";
+
+        toFile += "<name>" + p.name + "</name>" + "<phone>" + p.number
+                    + "</phone>" + "<email>" + p.email + "</email>"
+                    + "<facebook>" + "</facebook";
+
+        p.writeToFile(toFile);
+
+    }
 
 }

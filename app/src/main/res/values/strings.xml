@@ -8,5 +8,8 @@
     <string name="title_activity_generate_code">GenerateCode</string>
     <string name="title_activity_parser">Parser</string>
     <string name="title_activity_generated">Generated</string>
+    <string name="get_started"></string>
+    <string name="hello_blank_fragment"></string>
+
 
 </resources>
