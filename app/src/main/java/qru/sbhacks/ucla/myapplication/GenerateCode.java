@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 
 
 public class GenerateCode extends ActionBarActivity {
@@ -42,9 +43,44 @@ public class GenerateCode extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     public void generation(View view)
     {
         Intent generation = new Intent(this, Generated.class);
+        generation.putExtra("Checked boxes", checkedBoxes(view));
         startActivity(generation);
+    }
+
+    // Return a boolean array indicating whether checkbox checked
+    public boolean[] checkedBoxes(View view)
+    {
+        // If true: checked, false otherwise
+        // Item indices
+        // 0. Name
+        // 1. Phone number
+        // 2. Email
+        // 3. Facebook
+        // The rest are initialized to false
+        boolean [] checkboxes = new boolean[10];
+        for (int i = 0; i < checkboxes.length; i++) {
+            checkboxes[box] = false;
+        }
+
+        // TODO: Finish seeing if boxes are checked, then generate
+        if (((CheckBox)findViewById(R.id.checkBox)).isChecked()) {
+            checkboxes[0] = true;
+        }
+        else if (((CheckBox)findViewById(R.id.checkBox2)).isChecked()) {
+            checkboxes[1] = true;
+        }
+        else if (((CheckBox)findViewById(R.id.checkBox3)).isChecked()) {
+            checkboxes[2] = true;
+        }
+        else if (((CheckBox)findViewById(R.id.checkBox2)).isChecked()) {
+            checkboxes[3] = true;
+        }
+
+        return checkboxes;
+
     }
 }

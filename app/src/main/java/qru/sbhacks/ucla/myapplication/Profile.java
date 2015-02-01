@@ -124,7 +124,7 @@ public String readFromFile(Context ctx) {
 
 public boolean writeToFile(String tosend) {
     try {
-        FileOutputStream fos = new FileOutputStream("profile.xml");
+        FileOutputStream fos = openFileOutput("profile.xml", Context.MODE_PRIVATE);
         fos.write(tosend.getBytes());
         fos.close();
     } catch (Exception e) {

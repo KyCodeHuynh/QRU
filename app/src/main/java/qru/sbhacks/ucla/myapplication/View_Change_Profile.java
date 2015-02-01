@@ -43,14 +43,12 @@ public class View_Change_Profile extends ActionBarActivity {
 
         try {
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(
-                    openFileInput("prof.txt")));
+                    openFileInput("profile.xml")));
             String inputString;
             StringBuffer stringBuffer = new StringBuffer();
             while ((inputString = inputReader.readLine()) != null) {
                 stringBuffer.append(inputString + "\n");
             }
-            TextView lblTextViewOne = (TextView) findViewById(R.id.twitterFeed);
-            lblTextViewOne.setText(stringBuffer.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -95,7 +93,9 @@ public class View_Change_Profile extends ActionBarActivity {
 
         toFile += "<name>" + p.name + "</name>" + "<phone>" + p.number
                     + "</phone>" + "<email>" + p.email + "</email>"
-                    + "<facebook>" + "</facebook";
+                    + "<facebook>" + "</facebook>";
+
+        System.out.println(toFile);
 
         p.writeToFile(toFile);
 

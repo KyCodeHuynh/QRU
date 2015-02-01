@@ -240,7 +240,8 @@
                         android:layout_alignTop="@+id/button8"
                         android:layout_alignParentEnd="true"
                         android:background="#2980b9"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:onClick="saveProfile" />
                 </LinearLayout>
 
             </LinearLayout>
