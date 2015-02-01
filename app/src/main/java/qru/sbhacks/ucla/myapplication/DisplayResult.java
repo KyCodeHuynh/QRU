@@ -17,7 +17,16 @@ public class DisplayResult extends ActionBarActivity {
         setContentView(R.layout.activity_display_result);
         Intent data = getIntent();
         String toshow = data.getStringExtra("xml");
-        ((TextView)findViewById(R.id.textView11)).setText(toshow);
+        //((TextView)findViewById(R.id.textView11)).setText(toshow);
+        Profile p = Profile.parseString(toshow);
+        ((TextView)findViewById(R.id.textView11)).setText(
+                "Name: " + p.name +"\n" +
+                "Phone Number: " + p.email +"\n" +
+                "Facebook: " + p.number +"\n" +
+                "Email: "+ p.facebook +"\n"
+        );
+
+
     }
 
 

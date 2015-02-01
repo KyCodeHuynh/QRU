@@ -45,6 +45,13 @@ public class Generated extends ActionBarActivity {
         }
         result +="</TEXT_TYPE>";
 
+        if (checkedBoxes[0] == false
+                && checkedBoxes[1] == false
+                && checkedBoxes[2] == false
+                && checkedBoxes[3] == false) {
+            result = "";
+        }
+
         Intent activity = new Intent(this, DispCode.class);
         activity.putExtra("xml", result);
         startActivity(activity);
