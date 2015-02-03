@@ -16,6 +16,7 @@ import android.widget.Toast;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -44,9 +45,10 @@ public class View_Change_Profile extends ActionBarActivity {
 //        String rawProfile = p.readFromFile(Context);
 //        p = Profile.parseString(rawProfile);
           StringBuffer stringBuffer = null;
+        
         try {
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(
-                    openFileInput("profile.xml")));
+                    openFileInput("Data")));
             String inputString;
             stringBuffer = new StringBuffer();
             while ((inputString = inputReader.readLine()) != null) {
@@ -116,10 +118,16 @@ public class View_Change_Profile extends ActionBarActivity {
         System.out.println(toFile);
         HomeScreen.globalStr = toFile;
         Log.d("Kappa", toFile +"written to global string");
-        if (p.writeToFile(this.getApplicationContext(), toFile)){
 
-            System.exit(0);
+        try {
+            FileOutputStream fos = openFileOutput("Data", Context.MODE_PRIVATE);
+            fos.write(toFile.getBytes());
+            fos.close();
+        } catch(Exception e){
+            e.printStackTrace();
         }
+
+        System.exit(0);
 
 
     }
