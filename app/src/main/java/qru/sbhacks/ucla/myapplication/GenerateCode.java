@@ -51,7 +51,8 @@ public class GenerateCode extends ActionBarActivity {
         //Intent generation = new Intent(this, Generated.class);
         Intent generation = new Intent(this, EncodeActivity.class);
         generation.putExtra("checkedBoxes", checkedBoxes(view));
-        generation.putExtra(Intents.Encode.FORMAT, BarcodeFormat.QR_CODE);
+       // generation.putExtra(Intents.Encode.FORMAT, BarcodeFormat.QR_CODE);
+        generation.putExtra(Intents.Encode.FORMAT, "QR_CODE");
         generation.setAction(Intents.Encode.ACTION);
         generation.putExtra(Intents.Encode.TYPE,Contents.Type.TEXT);
         generation.putExtra(Intents.Encode.DATA, HomeScreen.globalStr);

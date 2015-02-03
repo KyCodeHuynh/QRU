@@ -115,9 +115,11 @@ public class View_Change_Profile extends ActionBarActivity {
         System.out.println(toFile);
 
         if (p.writeToFile(this.getApplicationContext(), toFile)){
-            Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+
+            System.exit(0);
         }
-        System.exit(0);
+
+
     }
 
 }
