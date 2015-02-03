@@ -230,9 +230,13 @@ final class QRCodeEncoder {
       case Contents.Type.TEXT: {
         String data = intent.getStringExtra(Intents.Encode.DATA);
         if (data != null && !data.isEmpty()) {
+            Log.d("Kappa", "contents exist");
           contents = data;
           displayContents = data;
           title = activity.getString(R.string.contents_text);
+        }
+          else{
+            Log.d("Kappa", "contents null");
         }
         break;
       }

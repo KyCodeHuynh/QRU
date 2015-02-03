@@ -17,10 +17,12 @@ public class HomeScreen extends ActionBarActivity {
 
     public static String globalStr = "";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
     }
 
     @Override

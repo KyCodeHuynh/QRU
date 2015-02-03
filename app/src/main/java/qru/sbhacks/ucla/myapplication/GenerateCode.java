@@ -3,6 +3,7 @@ package qru.sbhacks.ucla.myapplication;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,16 +46,37 @@ public class GenerateCode extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void checkall(View view){
+        CheckBox temp = (CheckBox)findViewById(R.id.checkBox);
+        temp.setChecked(true);
+        temp = (CheckBox)findViewById(R.id.checkBox2);
+        temp.setChecked(true);
+        temp = (CheckBox)findViewById(R.id.checkBox3);
+        temp.setChecked(true);
+        temp = (CheckBox)findViewById(R.id.checkBox4);
+        temp.setChecked(true);
+    }
+    public void uncheck (View view){
+        CheckBox temp = (CheckBox)findViewById(R.id.checkBox);
+        temp.setChecked(false);
+        temp = (CheckBox)findViewById(R.id.checkBox2);
+        temp.setChecked(false);
+        temp = (CheckBox)findViewById(R.id.checkBox3);
+        temp.setChecked(false);
+        temp = (CheckBox)findViewById(R.id.checkBox4);
+        temp.setChecked(false);
+    }
 
     public void generation(View view)
     {
         //Intent generation = new Intent(this, Generated.class);
         Intent generation = new Intent(this, EncodeActivity.class);
-        generation.putExtra("checkedBoxes", checkedBoxes(view));
+       // generation.putExtra("checkedBoxes", checkedBoxes(view));
        // generation.putExtra(Intents.Encode.FORMAT, BarcodeFormat.QR_CODE);
         generation.putExtra(Intents.Encode.FORMAT, "QR_CODE");
         generation.setAction(Intents.Encode.ACTION);
-        generation.putExtra(Intents.Encode.TYPE,Contents.Type.TEXT);
+        generation.putExtra(Intents.Encode.TYPE, Contents.Type.TEXT);
+        Log.d("Kappa", "data written is: ");
         generation.putExtra(Intents.Encode.DATA, HomeScreen.globalStr);
         startActivity(generation);
     }

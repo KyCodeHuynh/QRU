@@ -9,20 +9,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Generate Code"
-        android:id="@+id/button2"
+        android:text="Cancel"
+        android:id="@+id/button14"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/scrollView"
-        android:onClick="generation"/>
+        android:layout_alignParentStart="true"
+        android:onClick="exit" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:id="@+id/button"
+        android:text="Generate Code"
+        android:id="@+id/button14"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:onClick="exit" />
+        android:layout_alignEnd="@+id/scrollView"
+        android:onClick="generation" />
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -58,15 +58,41 @@
                 android:layout_height="wrap_content"
                 android:text="Email"
                 android:id="@+id/checkBox3"
-                android:checked="false"/>
+                android:checked="false"
+                />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Facebook"
                 android:id="@+id/checkBox4"
-                android:checked="false"/>
+                android:checked="false"
+                />
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Deselect All"
+            android:id="@+id/button12"
+            android:layout_weight="1"
+            android:onClick="uncheck" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Select All"
+            android:id="@+id/button13"
+            android:layout_weight="1"
+            android:onClick="checkall" />
+    </LinearLayout>
 
 </RelativeLayout>

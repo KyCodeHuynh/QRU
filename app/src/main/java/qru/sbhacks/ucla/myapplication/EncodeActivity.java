@@ -210,7 +210,9 @@ public final class EncodeActivity extends Activity {
       if (bitmap == null) {
         Log.w(TAG, "Could not encode barcode");
         showErrorMessage(R.string.msg_encode_contents_failed);
-        qrCodeEncoder = null;
+
+          Log.d(TAG, "bitmap is null");
+          qrCodeEncoder = null;
         return;
       }
 
