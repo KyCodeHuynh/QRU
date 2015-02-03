@@ -45,7 +45,7 @@ public class View_Change_Profile extends ActionBarActivity {
 //        String rawProfile = p.readFromFile(Context);
 //        p = Profile.parseString(rawProfile);
           StringBuffer stringBuffer = null;
-        
+
         try {
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(
                     openFileInput("Data")));

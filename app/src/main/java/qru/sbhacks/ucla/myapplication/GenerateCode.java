@@ -11,6 +11,10 @@ import android.widget.CheckBox;
 
 import com.google.zxing.BarcodeFormat;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 
 public class GenerateCode extends ActionBarActivity {
 
@@ -73,11 +77,25 @@ public class GenerateCode extends ActionBarActivity {
         Intent generation = new Intent(this, EncodeActivity.class);
        // generation.putExtra("checkedBoxes", checkedBoxes(view));
        // generation.putExtra(Intents.Encode.FORMAT, BarcodeFormat.QR_CODE);
+        StringBuffer stringBuffer = null;
+        try {
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(
+                    openFileInput("Data")));
+            String inputString;
+            stringBuffer = new StringBuffer();
+            while ((inputString = inputReader.readLine()) != null) {
+                stringBuffer.append(inputString + "\n");
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         generation.putExtra(Intents.Encode.FORMAT, "QR_CODE");
         generation.setAction(Intents.Encode.ACTION);
         generation.putExtra(Intents.Encode.TYPE, Contents.Type.TEXT);
         Log.d("Kappa", "data written is: ");
-        generation.putExtra(Intents.Encode.DATA, HomeScreen.globalStr);
+        generation.putExtra(Intents.Encode.DATA, stringBuffer.toString());
         startActivity(generation);
     }
 
