@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.facebook.Session;
+import com.facebook.Session;
 
 import org.xmlpull.v1.XmlPullParserException;
 

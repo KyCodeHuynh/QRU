@@ -20,7 +20,21 @@ public class DisplayResult extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_display_result);
+        Intent data = getIntent();
+        String toshow = data.getStringExtra("xml");
 
+        Profile p = null;
+        Intent create;
+            p = Profile.parseString(toshow);
+
+        if (p!= null){
+           create = new Intent(Contacts.Intents.Insert.ACTION);
+            create.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+            create.putExtra(Contacts.Intents.Insert.EMAIL, p.email);
+            create.putExtra(Contacts.Intents.Insert.NAME, p.name);
+            create.putExtra(Contacts.Intents.Insert.PHONE, p.number);
+            startActivity(create);
+        }
     }
 
 
