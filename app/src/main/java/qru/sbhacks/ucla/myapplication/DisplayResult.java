@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 import qru.sbhacks.ucla.myapplication.Intents;
 
@@ -17,23 +18,8 @@ public class DisplayResult extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_display_result);
-        Intent data = getIntent();
-        String toshow = data.getStringExtra("xml");
-
-        Profile p = null;
-        Intent create;
-            p = Profile.parseString(toshow);
-        if (p!= null){
-           create = new Intent(Contacts.Intents.Insert.ACTION);
-            create.setType(ContactsContract.RawContacts.CONTENT_TYPE);
-            create.putExtra(Contacts.Intents.Insert.EMAIL, p.email);
-            create.putExtra(Contacts.Intents.Insert.NAME, p.name);
-            create.putExtra(Contacts.Intents.Insert.PHONE, p.number);
-            startActivity(create);
-        }
-
-
 
     }
 
@@ -58,6 +44,23 @@ public class DisplayResult extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void createPhoneContact(){
+        // This creates a contact.
+        Intent data = getIntent();
+        String toshow = data.getStringExtra("xml");
+        Profile p = null;
+        Intent create;
+        p = Profile.parseString(toshow);
+        if (p!= null){
+            create = new Intent(Contacts.Intents.Insert.ACTION);
+            create.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+            create.putExtra(Contacts.Intents.Insert.EMAIL, p.email);
+            create.putExtra(Contacts.Intents.Insert.NAME, p.name);
+            create.putExtra(Contacts.Intents.Insert.PHONE, p.number);
+            startActivity(create);
+        }
     }
     public void leave(View view){
         Intent activity = new Intent(this, HomeScreen.class);
