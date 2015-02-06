@@ -24,6 +24,7 @@ public class DisplayResult extends ActionBarActivity {
         Profile p = null;
         Intent create;
             p = Profile.parseString(toshow);
+
         if (p!= null){
            create = new Intent(Contacts.Intents.Insert.ACTION);
             create.setType(ContactsContract.RawContacts.CONTENT_TYPE);

@@ -29,5 +29,6 @@ dependencies {
     compile 'com.google.zxing:zxing-parent:3.1.0'
     compile 'com.android.support:support-v4:19.1.+'
     compile 'com.android.support:appcompat-v7:19.1.+'
+    compile 'com.facebook.android:facebook-android-sdk:3.21.1'
 
 }
