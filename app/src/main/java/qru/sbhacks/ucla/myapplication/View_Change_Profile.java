@@ -20,10 +20,41 @@ import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.facebook.AppEventsLogger;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.UiLifecycleHelper;
 
 
-public class View_Change_Profile extends ActionBarActivity {
+public class View_Change_Profile extends FragmentActivity {
+    private MainFragment mainFragment;
+    private UiLifecycleHelper uiHelper;
+    private static final String TAG = "MainFragment";
 
+    private void onSessionStateChange(Session session, SessionState state, Exception exception) {
+        if (state.isOpened()) {
+            Log.i(TAG, "Logged in...");
+        } else if (state.isClosed()) {
+            Log.i(TAG, "Logged out...");
+        }
+    }
+
+    private Session.StatusCallback callback = new Session.StatusCallback() {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            onSessionStateChange(session, state, exception);
+        }
+    };
     // Implements the "Cancel" button
     public void exit(View view) {
         System.exit(0);
@@ -33,20 +64,25 @@ public class View_Change_Profile extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_view__change__profile);
-//        Profile testProfile = new Profile("1", "2", "#", "4");
-//        try {
-//            testProfile.testParser();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (XmlPullParserException e) {
-//            e.printStackTrace();
-//        }
 
-//        Profile p = new Profile("", "", "", "");
-//        String rawProfile = p.readFromFile(Context);
-//        p = Profile.parseString(rawProfile);
+      uiHelper = new UiLifecycleHelper(this, callback);
+      uiHelper.onCreate(savedInstanceState);
+
+
+        if (savedInstanceState == null) {
+            // Add the fragment on initial activity setup
+            mainFragment = new MainFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(android.R.id.content, mainFragment)
+                    .commit();
+        } else {
+            // Or set the fragment from restored state info
+            mainFragment = (MainFragment) getSupportFragmentManager()
+                    .findFragmentById(android.R.id.content);
+        }
           StringBuffer stringBuffer = null;
+        setContentView(R.layout.activity_view__change__profile);
 
         try {
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(
@@ -61,20 +97,30 @@ public class View_Change_Profile extends ActionBarActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(stringBuffer==null)
-            System.out.println("dickbutt");
+
         if (stringBuffer != null) {
-            System.out.println(stringBuffer.toString());
+
             Profile p = new Profile("", "", "", "");
             p = Profile.parseString(stringBuffer.toString());
             EditText temp;
             temp = (EditText) findViewById(R.id.editText);
-            temp.setText(p.name);
+            if(p.name != null){
+                temp.setText(p.name);
+            }
+            else{
+                Log.d("debug", "problem with parsing name from file");
+            }
             temp = (EditText) findViewById(R.id.editText2);
             temp.setText(p.email);
             temp = (EditText) findViewById(R.id.editText3);
             temp.setText(p.number);
         }
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        uiHelper.onSaveInstanceState(outState);
     }
 
     @Override
@@ -117,8 +163,8 @@ public class View_Change_Profile extends ActionBarActivity {
                     + "</phone>" + "<email>" + p.email + "</email>"
                     + "<facebook>" + "</facebook>";
 
-        System.out.println(toFile);
-        HomeScreen.globalStr = toFile;
+
+
         Log.d("Kappa", toFile +"written to global string");
 
         try {
@@ -132,6 +178,40 @@ public class View_Change_Profile extends ActionBarActivity {
         System.exit(0);
 
 
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        uiHelper.onResume();
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+        Session session = Session.getActiveSession();
+        if (session != null &&
+                (session.isOpened() || session.isClosed()) ) {
+            onSessionStateChange(session, session.getState(), null);
+        }
+
+        uiHelper.onResume();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        uiHelper.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        uiHelper.onPause();
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        uiHelper.onDestroy();
     }
 
 }

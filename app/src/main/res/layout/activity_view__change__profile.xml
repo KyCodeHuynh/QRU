@@ -131,22 +131,16 @@
                         android:text="Facebook"
                         android:id="@+id/textView6"
                         android:layout_weight="1"/>
-            <!--
-                   <Button
+     
+                    <com.facebook.widget.LoginButton
+                        android:id="@+id/authButton"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="Login"
-                        android:id="@+id/button4"
-                        android:layout_weight="1" />
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        />
 
-
-                   <fragment
-                       android:layout_width="fill_parent"
-                       android:layout_height="fill_parent"
-                       android:name="qru.sbhacks.ucla.myapplication.MainFragment"
-                       android:layout_weight="1"
-                       />
--->
                 </LinearLayout>
 
                 <LinearLayout
