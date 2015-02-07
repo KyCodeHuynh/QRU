@@ -37,7 +37,7 @@ public class HomeScreen extends ActionBarActivity {
         setContentView(R.layout.activity_home_screen);
         PackageInfo info;
         try {
-            info = getPackageManager().getPackageInfo("com.you.name", PackageManager.GET_SIGNATURES);
+            info = getPackageManager().getPackageInfo("qru.sbhacks.ucla.myapplication", PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest  md;
                 md = MessageDigest.getInstance("SHA");
