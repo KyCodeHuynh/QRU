@@ -37,6 +37,16 @@ public class Profile {
         this.number = phone;
     }
 
+    //changes everything to astring for easy formatting
+    public String toString()
+    {
+        String toReturn = null;
+        toReturn += "<name>" + this.name + "</name>"+
+                "<email>" + this.email + "</email>" +
+               "<phone>" + this.number + "</phone>" +
+                "<facebook>" + this.facebook + "</facebook>";
+        return toReturn;
+    }
     static public Profile parseString(String str) {
         System.out.println(str);
             // Initialize empty user

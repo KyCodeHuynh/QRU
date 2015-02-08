@@ -75,6 +75,7 @@ public class GenerateCode extends ActionBarActivity {
 
     public void generation(View view)
     {
+
         //Intent generation = new Intent(this, Generated.class);
         Intent generation = new Intent(this, EncodeActivity.class);
        // generation.putExtra("checkedBoxes", checkedBoxes(view));
@@ -93,11 +94,27 @@ public class GenerateCode extends ActionBarActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Profile p = new Profile("","","","");
+        p = Profile.parseString(stringBuffer.toString());
+        if (((CheckBox)findViewById(R.id.checkBox)).isChecked()) {
+            p.name = "";
+        }
+        if (((CheckBox)findViewById(R.id.checkBox3)).isChecked()) {
+            p.email = "";
+        }
+        if (((CheckBox)findViewById(R.id.checkBox2)).isChecked()) {
+        p.number = "";
+        }
+        if (((CheckBox)findViewById(R.id.checkBox4)).isChecked()) {
+            p.facebook = "";
+        }
+
+        //parse from the
         generation.putExtra(Intents.Encode.FORMAT, "QR_CODE");
         generation.setAction(Intents.Encode.ACTION);
         generation.putExtra(Intents.Encode.TYPE, Contents.Type.TEXT);
         Log.d("Kappa", "data written is: ");
-        generation.putExtra(Intents.Encode.DATA, stringBuffer.toString());
+        generation.putExtra(Intents.Encode.DATA, p.toString());
         startActivity(generation);
     }
 
