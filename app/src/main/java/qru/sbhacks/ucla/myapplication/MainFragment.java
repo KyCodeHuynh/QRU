@@ -37,13 +37,14 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_view__change__profile, container, false);
-
-        LoginButton authButton = (LoginButton) view.findViewById(R.id.authButton);
-        authButton.setFragment (this);
-
-
-        return view;
+//        View view = inflater.inflate(R.layout.activity_view__change__profile, container, false);
+//
+//        LoginButton authButton = (LoginButton) view.findViewById(R.id.authButton);
+//        authButton.setFragment (this);
+//
+//
+//        return view;
+        return null;
     }
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (state.isOpened()) {
