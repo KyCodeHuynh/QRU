@@ -21,7 +21,7 @@ public class Camera extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera);
+       // setContentView(R.layout.activity_camera);
         Collection<String> temp = Collections.singleton(BarcodeFormat.QR_CODE.toString());
         ii = new IntentIntegrator(Camera.this);
         ii.initiateScan(temp);
@@ -31,9 +31,14 @@ public class Camera extends ActionBarActivity {
         if (scanResult != null) {
             // handle scan result
             Intent activity = new Intent(this, DisplayResult.class);
-            activity.putExtra("xml", scanResult.getContents().toString());
-            startActivity(activity);
-
+            if (scanResult.getContents()!= null) {
+                activity.putExtra("xml", scanResult.getContents().toString());
+                startActivity(activity);
+            }
+            else{
+                Intent home = new Intent(this, HomeScreen.class);
+                startActivity(home);
+            }
         }
         // else continue with any other code you need in the method
 
